@@ -25,6 +25,7 @@ class _HomeStatefulState extends State<HomeStateful> {
       body: Container(
         padding: EdgeInsets.all(16),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Image.asset('images/floresta.jpg'),
             Text(
