@@ -68,7 +68,7 @@ class _HomeStatefulState extends State<HomeStateful> {
             TextButton(
               style: TextButton.styleFrom(
                   backgroundColor: Colors.green[300],
-                  elevation: 8,
+                  elevation: 5,
                   shadowColor: Colors.green),
               child: Text(
                 'Gerar Frase',
