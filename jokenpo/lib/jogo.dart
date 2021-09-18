@@ -13,11 +13,13 @@ class _JogoState extends State<Jogo> {
   var _resultado = 'Resultado!';
   var _placarUsuario = 0;
   var _placarApp = 0;
+  var _cor = Colors.black;
 
   _regraJogo(usuario, app) {
     if (usuario == app) {
       setState(() {
         this._resultado = 'Empate!';
+        this._cor = Colors.blue;
       });
     }
 
@@ -26,16 +28,19 @@ class _JogoState extends State<Jogo> {
       setState(() {
         this._resultado = 'Você ganhou!';
         this._placarUsuario++;
+        this._cor = Colors.green;
       });
     } else if (usuario == 'papel' && app == 'pedra') {
       setState(() {
         this._resultado = 'Você ganhou!';
         this._placarUsuario++;
+        this._cor = Colors.green;
       });
     } else if (usuario == 'tesoura' && app == 'papel') {
       setState(() {
         this._resultado = 'Você ganhou!';
         this._placarUsuario++;
+        this._cor = Colors.green;
       });
     }
 
@@ -44,16 +49,19 @@ class _JogoState extends State<Jogo> {
       setState(() {
         this._resultado = 'Você perdeu!';
         this._placarApp++;
+        this._cor = Colors.red;
       });
     } else if (usuario == 'pedra' && app == 'papel') {
       setState(() {
         this._resultado = 'Você perdeu!';
         this._placarApp++;
+        this._cor = Colors.red;
       });
     } else if (usuario == 'papel' && app == 'tesoura') {
       setState(() {
         this._resultado = 'Você perdeu!';
         this._placarApp++;
+        this._cor = Colors.red;
       });
     }
   }
@@ -62,6 +70,7 @@ class _JogoState extends State<Jogo> {
     var opcoes = ['pedra', 'papel', 'tesoura'];
     var numero = Random().nextInt(3);
     var escolhaApp = opcoes[numero];
+
     print(escolhaApp);
     setState(() {
       this._imagemApp = AssetImage('images/${escolhaApp}.png');
@@ -116,7 +125,8 @@ class _JogoState extends State<Jogo> {
             child: Text(
               _resultado,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.bold, color: _cor),
             ),
           ),
           Row(
@@ -148,23 +158,28 @@ class _JogoState extends State<Jogo> {
           Padding(
             padding: EdgeInsets.only(top: 40),
             child: TextButton(
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.blue,
-                elevation: 5,
-                shadowColor: Colors.green),
-            child: Text(
-              'Reiniciar',
-              style: TextStyle(
-                color: Colors.white,
+              style: TextButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  elevation: 5,
+                  shadowColor: Colors.black,
+                  textStyle: const TextStyle(fontSize: 25)),
+              child: Text(
+                'Reiniciar',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
+              onPressed: () {
+                setState(() {
+                  _imagemApp = AssetImage('images/padrao.png');
+                  _resultado = 'Resultado!';
+                  _placarUsuario = 0;
+                  _placarApp = 0;
+                  _cor = Colors.black;
+                });
+              },
             ),
-            onPressed: () {
-              setState(() {
-                _placarApp = 0;
-                _placarUsuario = 0;
-              });
-            },
-          ),),
+          ),
         ],
       ),
     );
