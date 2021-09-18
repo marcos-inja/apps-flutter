@@ -11,6 +11,9 @@ class Jogo extends StatefulWidget {
 class _JogoState extends State<Jogo> {
   var _imagemApp = AssetImage('images/padrao.png');
   var _resultado = 'Resultado!';
+  var _placarUsuario = 0;
+  var _placarApp = 0;
+
   _regraJogo(usuario, app) {
     if (usuario == app) {
       setState(() {
@@ -22,14 +25,17 @@ class _JogoState extends State<Jogo> {
     if (usuario == 'pedra' && app == 'tesoura') {
       setState(() {
         this._resultado = 'Você ganhou!';
+        this._placarUsuario++;
       });
     } else if (usuario == 'papel' && app == 'pedra') {
       setState(() {
         this._resultado = 'Você ganhou!';
+        this._placarUsuario++;
       });
     } else if (usuario == 'tesoura' && app == 'papel') {
       setState(() {
         this._resultado = 'Você ganhou!';
+        this._placarUsuario++;
       });
     }
 
@@ -37,14 +43,17 @@ class _JogoState extends State<Jogo> {
     if (usuario == 'tesoura' && app == 'pedra') {
       setState(() {
         this._resultado = 'Você perdeu!';
+        this._placarApp++;
       });
     } else if (usuario == 'pedra' && app == 'papel') {
       setState(() {
         this._resultado = 'Você perdeu!';
+        this._placarApp++;
       });
     } else if (usuario == 'papel' && app == 'tesoura') {
       setState(() {
         this._resultado = 'Você perdeu!';
+        this._placarApp++;
       });
     }
   }
@@ -69,6 +78,30 @@ class _JogoState extends State<Jogo> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Padding(
+            padding: EdgeInsets.only(top: 32, bottom: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  'Pontos máquina: ${_placarApp}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red),
+                ),
+                Text(
+                  'Pontos usúario: ${_placarUsuario}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green),
+                ),
+              ],
+            ),
+          ),
           Padding(
             padding: EdgeInsets.only(top: 32, bottom: 16),
             child: Text(
@@ -112,6 +145,26 @@ class _JogoState extends State<Jogo> {
               ),
             ],
           ),
+          Padding(
+            padding: EdgeInsets.only(top: 40),
+            child: TextButton(
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.blue,
+                elevation: 5,
+                shadowColor: Colors.green),
+            child: Text(
+              'Reiniciar',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            onPressed: () {
+              setState(() {
+                _placarApp = 0;
+                _placarUsuario = 0;
+              });
+            },
+          ),),
         ],
       ),
     );
