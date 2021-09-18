@@ -22,42 +22,19 @@ class _JogoState extends State<Jogo> {
         this._cor = Colors.blue;
       });
     }
-
     // Usuario ganha caso for isso:
-    if (usuario == 'pedra' && app == 'tesoura') {
+    if ((usuario == 'pedra' && app == 'tesoura') ||
+        (usuario == 'papel' && app == 'pedra') ||
+        (usuario == 'tesoura' && app == 'papel')) {
       setState(() {
         this._resultado = 'Você ganhou!';
         this._placarUsuario++;
         this._cor = Colors.green;
       });
-    } else if (usuario == 'papel' && app == 'pedra') {
-      setState(() {
-        this._resultado = 'Você ganhou!';
-        this._placarUsuario++;
-        this._cor = Colors.green;
-      });
-    } else if (usuario == 'tesoura' && app == 'papel') {
-      setState(() {
-        this._resultado = 'Você ganhou!';
-        this._placarUsuario++;
-        this._cor = Colors.green;
-      });
-    }
-
-    // Usuario perde caso for isso:
-    if (usuario == 'tesoura' && app == 'pedra') {
-      setState(() {
-        this._resultado = 'Você perdeu!';
-        this._placarApp++;
-        this._cor = Colors.red;
-      });
-    } else if (usuario == 'pedra' && app == 'papel') {
-      setState(() {
-        this._resultado = 'Você perdeu!';
-        this._placarApp++;
-        this._cor = Colors.red;
-      });
-    } else if (usuario == 'papel' && app == 'tesoura') {
+      // Usuario perde caso for isso:
+    } else if ((usuario == 'tesoura' && app == 'pedra') ||
+        (usuario == 'pedra' && app == 'papel') ||
+        (usuario == 'papel' && app == 'tesoura')) {
       setState(() {
         this._resultado = 'Você perdeu!';
         this._placarApp++;
