@@ -10,7 +10,7 @@ class Jogo extends StatefulWidget {
 
 class _JogoState extends State<Jogo> {
   var _imagemApp = AssetImage('images/padrao.png');
-  var _resultado = 'Resultado!';
+  var _resultado = 'Escolha uma opção!';
   var _placarUsuario = 0;
   var _placarApp = 0;
   var _cor = Colors.black;
@@ -149,7 +149,7 @@ class _JogoState extends State<Jogo> {
               onPressed: () {
                 setState(() {
                   _imagemApp = AssetImage('images/padrao.png');
-                  _resultado = 'Resultado!';
+                  _resultado = 'Escolha uma opção!';
                   _placarUsuario = 0;
                   _placarApp = 0;
                   _cor = Colors.black;
