@@ -21,19 +21,15 @@ class _AppState extends State<App> {
         _resultado = 'Numeros invalidos!';
       });
     } else {
-      if (precoGasolina == precoAlcool) {
+      if ((precoAlcool/precoGasolina)>= 0.7) {
         setState(() {
-          _resultado = 'Qualquer um dos dois';
-        });
-      } else if (precoGasolina > precoAlcool) {
-        setState(() {
-          _resultado = 'Alcool está melhor';
+          _resultado = 'Melhor abastercer com gasolina';
         });
       } else {
         setState(() {
-          _resultado = 'Gasolina está melhor';
+          _resultado = 'Melhor abastecer com álcool';
         });
-      }
+      } 
     }
   }
 
