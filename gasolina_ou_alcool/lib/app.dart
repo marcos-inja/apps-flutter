@@ -23,7 +23,7 @@ class _AppState extends State<App> {
     } else {
       if ((precoAlcool/precoGasolina)>= 0.7) {
         setState(() {
-          _resultado = 'Melhor abastercer com gasolina';
+          _resultado = 'Melhor abastecer com gasolina';
         });
       } else {
         setState(() {
