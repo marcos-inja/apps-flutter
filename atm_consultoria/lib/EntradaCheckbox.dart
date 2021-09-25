@@ -8,6 +8,7 @@ class EntradaCheckbox extends StatefulWidget {
 class _EntradaCheckboxState extends State<EntradaCheckbox> {
   bool _comidaBrasileira = false;
   bool _comidaMexicana = false;
+  bool _marcos = true;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +47,21 @@ class _EntradaCheckboxState extends State<EntradaCheckbox> {
                     });
                   }
                 }),
+            CheckboxListTile(
+              title: Text("O Marcos é lindo?"),
+              subtitle: Text("Se desmarcar vou chora haha!"),
+              activeColor: Colors.green[300],
+              tileColor: Colors.blue[50],
+                //selected: true,
+              secondary: Icon(Icons.person_sharp, size: 40,),
+
+              value: _marcos, onChanged: (bool? valor){
+              if(valor != null){
+                setState(() {
+                  _marcos = valor;
+                });
+              }
+            }),
             RaisedButton(
                 child: Text(
                   "Salvar",
