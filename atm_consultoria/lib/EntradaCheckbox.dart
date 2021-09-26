@@ -48,31 +48,40 @@ class _EntradaCheckboxState extends State<EntradaCheckbox> {
                   }
                 }),
             CheckboxListTile(
-              title: Text("O Marcos é lindo?"),
-              subtitle: Text("Se desmarcar vou chora haha!"),
-              activeColor: Colors.green[300],
-              tileColor: Colors.blue[50],
+                title: Text("O Marcos é lindo?"),
+                subtitle: Text("Se desmarcar vou chora haha!"),
+                activeColor: Colors.green[300],
+                tileColor: Colors.blue[50],
                 //selected: true,
-              secondary: Icon(Icons.person_sharp, size: 40,),
-
-              value: _marcos, onChanged: (bool? valor){
-              if(valor != null){
-                setState(() {
-                  _marcos = valor;
-                });
-              }
-            }),
-            RaisedButton(
-                child: Text(
-                  "Salvar",
-                  style: TextStyle(fontSize: 20),
+                secondary: Icon(
+                  Icons.person_sharp,
+                  size: 40,
                 ),
-                onPressed: () {
-                  print("Comida Brasileira: " +
-                      _comidaBrasileira.toString() +
-                      " Comida Mexicana " +
-                      _comidaMexicana.toString());
-                })
+                value: _marcos,
+                onChanged: (bool? valor) {
+                  if (valor != null) {
+                    setState(() {
+                      _marcos = valor;
+                    });
+                  }
+                }),
+            TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.blue,
+              ),
+              onPressed: () {
+                print("Comida Brasileira: " +
+                    _comidaBrasileira.toString() +
+                    " Comida Mexicana " +
+                    _comidaMexicana.toString());
+              },
+              child: Text(
+                "Salvar",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
 
             /*
             Text("Comida Brasileira"),
