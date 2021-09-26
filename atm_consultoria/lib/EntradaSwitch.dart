@@ -27,13 +27,19 @@ class _EntradaSwitchState extends State<EntradaSwitch> {
             SwitchListTile(
               title: Text("Deseja receber notificações?"),
               value: _notificacoes,
-              onChanged: null,
+              onChanged: (bool valor) {
+                setState(() {
+                  _notificacoes = valor;
+                });
+              },
             ),
             TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: Colors.blue,
               ),
-              onPressed: () {},
+              onPressed: () {
+                print(_notificacoes);
+              },
               child: Text(
                 "Salvar",
                 style: TextStyle(
