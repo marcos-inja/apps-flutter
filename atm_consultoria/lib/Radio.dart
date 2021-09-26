@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class RadioText extends StatefulWidget {
@@ -21,34 +22,54 @@ class _RadioTextState extends State<RadioText> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text("Escolha seu sexo:", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-            Row(
-              children: [
-                Text("Masculino"),
-                Radio(
-                  value: "m",
-                  groupValue: _escolhaUsuario,
-                  onChanged: (var escolha) {
-                    setState(() {
-                      _escolhaUsuario = escolha;
-                    });
-                  },
-                ),
-              ],
+            RadioListTile(
+              title: Text("Masculino"),
+              value: "m",
+              groupValue: _escolhaUsuario,
+              onChanged: (var escolha) {
+                setState(() {
+                  _escolhaUsuario = escolha;
+                });
+              },
             ),
-            Row(
-              children: [
-                Text("Feminino"),
-                Radio(
-                  value: "f",
-                  groupValue: _escolhaUsuario,
-                  onChanged: (var escolha) {
-                    setState(() {
-                      _escolhaUsuario = escolha;
-                    });
-                  },
-                ),
-              ],
+            RadioListTile(
+              title: Text("Feminino"),
+              value: "f",
+              groupValue: _escolhaUsuario,
+              onChanged: (var escolha) {
+                setState(() {
+                  _escolhaUsuario = escolha;
+                });
+              },
             ),
+            // Row(
+            //   children: [
+            //     Text("Masculino"),
+            //     Radio(
+            //       value: "m",
+            //       groupValue: _escolhaUsuario,
+            //       onChanged: (var escolha) {
+            //         setState(() {
+            //           _escolhaUsuario = escolha;
+            //         });
+            //       },
+            //     ),
+            //   ],
+            // ),
+            // Row(
+            //   children: [
+            //     Text("Feminino"),
+            //     Radio(
+            //       value: "f",
+            //       groupValue: _escolhaUsuario,
+            //       onChanged: (var escolha) {
+            //         setState(() {
+            //           _escolhaUsuario = escolha;
+            //         });
+            //       },
+            //     ),
+            //   ],
+            // ),
             TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: Colors.blue,
@@ -60,6 +81,7 @@ class _RadioTextState extends State<RadioText> {
                 "Salvar",
                 style: TextStyle(
                   color: Colors.white,
+                  fontSize: 20,
                 ),
               ),
             ),
