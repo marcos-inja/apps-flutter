@@ -20,6 +20,7 @@ class _RadioTextState extends State<RadioText> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Text("Escolha seu sexo:", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
             Row(
               children: [
                 Text("Masculino"),
