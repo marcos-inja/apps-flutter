@@ -1,3 +1,4 @@
+import 'package:atm_consultoria/TelaEmpresa.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,9 +9,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  void _abrirEmpresa(){
-
+  void _abrirEmpresa() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => TelaEmpresa()));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,34 +32,32 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: EdgeInsets.only(top: 36),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children:[
-                  GestureDetector(
-                    onTap: _abrirEmpresa,
-                    child: Image.asset("images/menu_empresa.png"),
-                  ),
-                  GestureDetector(
-                    onTap: _abrirEmpresa,
-                    child: Image.asset("images/menu_servico.png"),
-                  ),
-                ]
-              ),
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: _abrirEmpresa,
+                      child: Image.asset("images/menu_empresa.png"),
+                    ),
+                    GestureDetector(
+                      onTap: _abrirEmpresa,
+                      child: Image.asset("images/menu_servico.png"),
+                    ),
+                  ]),
             ),
             Padding(
               padding: EdgeInsets.only(top: 36),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children:[
-                  GestureDetector(
-                    onTap: _abrirEmpresa,
-                    child: Image.asset("images/menu_cliente.png"),
-                  ),
-                  GestureDetector(
-                    onTap: _abrirEmpresa,
-                    child: Image.asset("images/menu_contato.png"),
-                  ),
-                ]
-              ),
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: _abrirEmpresa,
+                      child: Image.asset("images/menu_cliente.png"),
+                    ),
+                    GestureDetector(
+                      onTap: _abrirEmpresa,
+                      child: Image.asset("images/menu_contato.png"),
+                    ),
+                  ]),
             ),
           ],
         ),
